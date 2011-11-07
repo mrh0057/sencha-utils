@@ -1,9 +1,9 @@
 (ns extjs4.core
-  (:require [clojure.browser.repl :as repl]
+  (:require ;[clojure.browser.repl :as repl]
             [sencha-utils.core :as sencha])
-  (:require-macros [extjs-macs.core :as macs]))
+  (:require-macros [extjs-macs.core :as core-macs]))
 
-(repl/connect "http://localhost:9000/repl")
+;(repl/connect "http://localhost:9000/repl")
 
 (def ext (js* "Ext"))
 
@@ -17,3 +17,6 @@
 
 (defn define [name config]
   (.define ext name (sencha/to-config config)))
+
+(defn call-parent [this & args]
+  (.callParent this (sencha/convert-array args)))
