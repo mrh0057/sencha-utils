@@ -1,3 +1,4 @@
-rm -rf src/extjs/.repl
-jar cf ./sencha-tools-0.1.0-SNAPSHOT.jar -C src sencha_utils
+#!/bin/zsh
+rm -rf src/sencha_utils/.repl
+lein jar
 
